@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>hello</title>
+    <script src="greeting.js"></script>
+    <script type ="text/javascript">
+        window.onload = greeting;
+        if (document.location.hostname === "localhost") {
+            document.title = `(${document.location.port}) ${document.title}`;
+        }
+        const oldBrowsers = [ "Edg" /* not "Edge" */, "MSIE" ];
+        if (oldBrowsers.some((item) => RegExp(item, 'i').test(navigator.userAgent))) {
+            const msg = "Oh snap! Your browser seems to be IE or Edge.\n\n"
+                      + "These browsers are known to not keep up with the Web Standard. "
+                      + "As a result, this website may malfunction. Sorry.\n\n"
+                      + "Please try another browser, like Chrome or Firefox.\n\n"
+                      + "Technical notes:\n\n"
+                      + "* I didn't use Polyfill to support these browsers, because this "
+                      + "is merely a personal website, not a commercial one :)\n\n"
+                      + "* Microsoft is working on adopting Chromium content, the core of "
+                      + "Chrome, into Edge. Even if it's done, it takes time for users "
+                      + "across the globe to upgrade.\n\n"
+                      + "* Your user agent string: " + navigator.userAgent;
+            window.alert(msg);
+        }
+    </script>
+    <style type="text/css">
+        .greeting {
+            font-family: 'Georgia';
+            font-weight: bold;
+            font-size: 5ch;
+        }
+    </style>
+</head>
+<body>
+    <div id="greeting-message" class="greeting"></div>
+</body>
+</html>
+
